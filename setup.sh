@@ -1,2 +1,2 @@
-docker build -t herreran/gateway:latest .
-docker push herreran/gateway:latest
+docker build -t sakyjoestar/gateway:latest .
+docker push sakyjoestar/gateway:latest
