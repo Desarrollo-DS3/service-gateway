@@ -28,6 +28,10 @@ def list_categories(token: str = Depends(get_token)):
 def list_products(token: str = Depends(get_token)):
     return forward_request("stock_service", "/product/list", token=token)
 
+@router.get("/product/get/{product_id}")
+def get_product(product_id: int, token: str = Depends(get_token)):
+    return forward_request("stock_service", f"/product/get/{product_id}", token=token)
+
 @router.post("/product/supply")
-def supply_product(data: dict, token: str = "asdf"):
+def supply_product(data: dict, token: str = Depends(get_token)):
     return forward_request("stock_service", "/product/supply", method="POST", token=token, json=data)
