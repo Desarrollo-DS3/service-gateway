@@ -14,7 +14,7 @@ def add_item(data: dict, token: str = Depends(get_token)):
 
 @router.post("/product/add")
 def add_item(data: dict, token: str = Depends(get_token)):
-    return forward_request("stock_service", "/product/add", method="POST", token=token, json=data)
+    return forward_request("stock_service", "/product/create", method="POST", token=token, json=data)
 
 @router.get("/brand/list")
 def list_brands(token: str = Depends(get_token)):
@@ -35,3 +35,7 @@ def get_product(product_id: int, token: str = Depends(get_token)):
 @router.post("/product/supply")
 def supply_product(data: dict, token: str = Depends(get_token)):
     return forward_request("stock_service", "/product/supply", method="POST", token=token, json=data)
+
+@router.post("/product/buy")
+def supply_product(data: dict, token: str = Depends(get_token)):
+    return forward_request("stock_service", "/product/buy", method="POST", token=token, json=data)
